@@ -14,15 +14,25 @@
         </header>
 
         <nav class="navbar">
-            <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
-                📖 Library
-            </a>
-            <a href="{{ url_for('add_book') }}" class="nav-link {% if request.endpoint == 'add_book' %}active{% endif %}">
-                ➕ Add Book
-            </a>
-            <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
-                ℹ️ About
-            </a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                    📖 Library
+                </a>
+                <a href="{{ url_for('add_book') }}" class="nav-link {% if request.endpoint == 'add_book' %}active{% endif %}">
+                    ➕ Add Book
+                </a>
+                <a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">
+                    ℹ️ About
+                </a>
+            </div>
+            {% if session.get('username') %}
+            <div class="nav-user">
+                <span class="user-badge">👤 {{ session['username'] }}</span>
+                <a href="{{ url_for('logout') }}" class="nav-link logout-btn">
+                    🚪 Logout
+                </a>
+            </div>
+            {% endif %}
         </nav>
 
         {% with messages = get_flashed_messages(with_categories=true) %}

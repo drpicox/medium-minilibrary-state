@@ -65,10 +65,10 @@ Both manage identical data and support the same CRUD operations, but each approa
              │
     ┌────────┴────────┐
     ↓                 ↓
-┌─────────┐      ┌──────────────┐
+┌──────────┐      ┌──────────────┐
 │ Template │      │  books.json  │
-│(HTML)   │      │   (Storage)  │
-└────┬────┘      └──────────────┘
+│(HTML)    │      │   (Storage)  │
+└────┬─────┘      └──────────────┘
      ↓
 ┌──────────────┐
 │ CSS Styling  │
@@ -134,19 +134,19 @@ LIST OF BOOKS:
 ┌─────────────────────────────────────────────────────┐
 │  📚 MINI LIBRARY MANAGER - Web Edition              │
 ├─────────────────────────────────────────────────────┤
-│  📖 Library  |  ➕ Add Book  |  ℹ️ About             │
+│  📖 Library  |  ➕ Add Book  |  ℹ️ About            │
 ├─────────────────────────────────────────────────────┤
-│
-│  📚 Your Library (2 books)
-│
-│  ┌──────────────┐   ┌──────────────┐
-│  │ The Hobbit   │   │ 1984         │
-│  │ J.R.R Tolkien│   │ George Orwell│
-│  │ ✓ Available  │   │ 🔗 Lent      │
-│  │ [View][Edit] │   │ [View][Edit] │
-│  │ [Delete]     │   │ [Delete]     │
-│  └──────────────┘   └──────────────┘
-│
+│                                                     │
+│  📚 Your Library (2 books)                          │
+│                                                     │
+│  ┌──────────────┐   ┌──────────────┐                │
+│  │ The Hobbit   │   │ 1984         │                │
+│  │ J.R.R Tolkien│   │ George Orwell│                │
+│  │ ✓ Available  │   │ 🔗 Lent      │                │
+│  │ [View][Edit] │   │ [View][Edit] │                │
+│  │ [Delete]     │   │ [Delete]     │                │
+│  └──────────────┘   └──────────────┘                │
+│                                                     │
 └─────────────────────────────────────────────────────┘
 ```
 

@@ -3,12 +3,12 @@
 ```
 ╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
-║                    MINI LIBRARY MANAGER MONOREPO                          ║
+║                    MINI LIBRARY MANAGER MONOREPO                           ║
 ║                                                                            ║
-║    Two Approaches to the Same Problem:                                    ║
-║    Retro CLI vs Modern Web Interface                                      ║
+║    Two Approaches to the Same Problem:                                     ║
+║    Retro CLI vs Modern Web Interface                                       ║
 ║                                                                            ║
-║         "Demonstrating design philosophy through interface choice"        ║
+║         "Demonstrating design philosophy through interface choice"         ║
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 ```
@@ -39,28 +39,28 @@ Both manage the same data (your personal book library) but provide dramatically 
 ```
 msdos-library/
 │
-├── README.md                 ← You are here
+├── README.md                ← You are here
 ├── COMPARATIVA.md           ← Deep comparison analysis
 │
-├── cli/                      ← Command-line version
-│   ├── main.py             ← Single Python file (232 lines)
-│   ├── books.json          ← Data storage
-│   └── README.md           ← CLI-specific documentation
+├── cli/                     ← Command-line version
+│   ├── main.py              ← Single Python file (232 lines)
+│   ├── books.json           ← Data storage
+│   └── README.md            ← CLI-specific documentation
 │
-└── web/                      ← Web version
-    ├── app.py              ← Flask application
-    ├── requirements.txt    ← Python dependencies
-    ├── books.json          ← Shared data storage
-    ├── README.md           ← Web-specific documentation
-    ├── templates/          ← HTML templates
-    │   ├── base.html       ← Base template
-    │   ├── index.html      ← Library listing
-    │   ├── add_book.html   ← Add book form
+└── web/                     ← Web version
+    ├── app.py               ← Flask application
+    ├── requirements.txt     ← Python dependencies
+    ├── books.json           ← Shared data storage
+    ├── README.md            ← Web-specific documentation
+    ├── templates/           ← HTML templates
+    │   ├── base.html        ← Base template
+    │   ├── index.html       ← Library listing
+    │   ├── add_book.html    ← Add book form
     │   ├── book_details.html
     │   ├── edit_book.html
     │   └── about.html
-    └── static/             ← CSS and assets
-        └── style.css       ← Retro styling
+    └── static/              ← CSS and assets
+        └── style.css        ← Retro styling
 ```
 
 ---

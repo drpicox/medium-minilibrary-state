@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Mini Library Manager{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>📚 MINI LIBRARY MANAGER</h1>
+        <p class="subtitle">Web Edition</p>
+        
+        <div class="auth-form-container">
+            <h2>✍️ Create Account</h2>
+            
+            <form method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        required 
+                        placeholder="Choose a username (min 3 chars)"
+                        autofocus
+                    >
+                    <small>Alphanumeric and underscores only</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        placeholder="Create password (min 4 chars)"
+                    >
+                    <small>Make it something you remember!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirm">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="password_confirm" 
+                        name="password_confirm" 
+                        required 
+                        placeholder="Repeat password"
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-success btn-block">
+                    ✅ Create Account
+                </button>
+            </form>
+
+            <div class="auth-divider">
+                <span>Already have an account?</span>
+            </div>
+
+            <a href="{{ url_for('login') }}" class="btn btn-info btn-block">
+                🔐 Login
+            </a>
+        </div>
+
+        <div class="demo-notice">
+            <p><strong>Requirements:</strong></p>
+            <ul>
+                <li>Username: 3+ characters</li>
+                <li>Password: 4+ characters</li>
+                <li>Passwords must match</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
