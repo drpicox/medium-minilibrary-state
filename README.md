@@ -37,7 +37,7 @@ Both manage the same data (your personal book library) but provide dramatically 
 ## 📁 Repository Structure
 
 ```
-msdos-library/
+minilibrary-state/
 │
 ├── README.md                ← You are here
 ├── COMPARISON.md            ← Deep comparison analysis
@@ -203,7 +203,7 @@ cp web/users/demo/books.json cli/books.json
 | **Performance** | Excellent | Good |
 | **Extensibility** | Limited | Good |
 
-For a **detailed comparison**, see [COMPARATIVA.md](COMPARATIVA.md).
+For a **detailed comparison**, see [COMPARISON.md](COMPARISON.md).
 
 ---
 
@@ -288,7 +288,7 @@ The combination proves you can be **both retro and modern** in different context
 | File | Purpose |
 |------|---------|
 | `README.md` | This file - project overview |
-| `COMPARATIVA.md` | Detailed comparison of both editions |
+| `COMPARISON.md` | Detailed comparison of both editions |
 | `.gitignore` | Git configuration |
 | `.git/` | Version control history |
 
