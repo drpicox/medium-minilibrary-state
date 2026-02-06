@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Library - Mini Library Manager{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>📚 Your Library</h2>
+    <p class="book-count">Total books: <strong>{{ count }}</strong></p>
+</div>
+
+{% if books %}
+    <div class="books-container">
+        {% for book in books %}
+        <div class="book-card">
+            <div class="book-header">
+                <h3 class="book-title">{{ book.title }}</h3>
+                {% if book.lent_to %}
+                <span class="lent-badge">🔗 Lent</span>
+                {% else %}
+                <span class="available-badge">✓ Available</span>
+                {% endif %}
+            </div>
+            
+            <p class="book-author">by <strong>{{ book.author }}</strong></p>
+            
+            {% if book.lent_to %}
+            <p class="lent-to">
+                <strong>Lent to:</strong> {{ book.lent_to }}
+            </p>
+            {% endif %}
+
+            <div class="book-actions">
+                <a href="{{ url_for('view_book', book_id=book.id) }}" class="btn btn-info">
+                    👁️ View
+                </a>
+                <a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn btn-warning">
+                    ✏️ Edit
+                </a>
+                <form method="POST" action="{{ url_for('delete_book', book_id=book.id) }}" style="display:inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this book?')">
+                        🗑️ Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <p>📭 Your library is empty</p>
+        <p>Add your first book <a href="{{ url_for('add_book') }}">here</a></p>
+    </div>
+{% endif %}
+{% endblock %}

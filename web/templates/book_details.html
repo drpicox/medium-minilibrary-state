@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.title }} - Mini Library Manager{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>📖 Book Details</h2>
+</div>
+
+<div class="book-detail-container">
+    <div class="book-detail-card">
+        <div class="detail-header">
+            <h1 class="detail-title">{{ book.title }}</h1>
+            {% if book.lent_to %}
+            <span class="lent-badge large">🔗 Lent</span>
+            {% else %}
+            <span class="available-badge large">✓ Available</span>
+            {% endif %}
+        </div>
+
+        <div class="detail-content">
+            <div class="detail-row">
+                <span class="detail-label">Author:</span>
+                <span class="detail-value">{{ book.author }}</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Lent To:</span>
+                <span class="detail-value">
+                    {% if book.lent_to %}
+                        {{ book.lent_to }}
+                    {% else %}
+                        <em>(Not lent - available in your library)</em>
+                    {% endif %}
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Added:</span>
+                <span class="detail-value">
+                    {{ book.created_at[:10] }}
+                </span>
+            </div>
+        </div>
+
+        <div class="detail-actions">
+            <a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn btn-warning">
+                ✏️ Edit
+            </a>
+            <form method="POST" action="{{ url_for('delete_book', book_id=book.id) }}" style="display:inline;">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this book?')">
+                    🗑️ Delete
+                </button>
+            </form>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                ← Back to Library
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}About - Mini Library Manager{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>ℹ️ About This Project</h2>
+</div>
+
+<div class="about-container">
+    <section class="about-section">
+        <h3>🎯 What is Mini Library Manager?</h3>
+        <p>
+            Mini Library Manager is a demonstration project showcasing two different approaches to building 
+            the same application: a <strong>retro CLI interface</strong> (inspired by 1980s MS-DOS) and a 
+            <strong>modern web interface</strong> (built with Flask).
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h3>📚 Features</h3>
+        <ul>
+            <li>✅ <strong>Create</strong> - Add new books to your library</li>
+            <li>✅ <strong>Read</strong> - View all books and their details</li>
+            <li>✅ <strong>Update</strong> - Edit book information anytime</li>
+            <li>✅ <strong>Delete</strong> - Remove books from your collection</li>
+            <li>✅ <strong>Track Loans</strong> - Remember who borrowed your books</li>
+            <li>✅ <strong>Persistent Storage</strong> - All data saved in JSON</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h3>🔄 CLI vs Web Edition</h3>
+        <p>
+            Both versions manage the same data and provide the same core functionality, but with 
+            different user experiences:
+        </p>
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <h4>CLI Edition</h4>
+                <p>Text-based menu interface reminiscent of 1980s database programs like dBASE.</p>
+                <p><em>Approach:</em> Functional, menu-driven, nostalgic</p>
+            </div>
+            <div class="comparison-item">
+                <h4>Web Edition</h4>
+                <p>Modern web interface built with Flask. Point-and-click simplicity.</p>
+                <p><em>Approach:</em> Visual, interactive, contemporary</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h3>💾 Data Format</h3>
+        <p>
+            All books are stored in <code>books.json</code>, a human-readable format. You can
+            inspect and edit it directly if needed:
+        </p>
+        <pre>{
+  "id": 1,
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "lent_to": "John",
+  "created_at": "2026-02-06T22:34:34"
+}</pre>
+    </section>
+
+    <section class="about-section">
+        <h3>🛠️ Technology Stack</h3>
+        <div class="tech-stack">
+            <div class="tech-item">
+                <strong>CLI Edition:</strong> Pure Python, no dependencies
+            </div>
+            <div class="tech-item">
+                <strong>Web Edition:</strong> Python 3, Flask, Jinja2, CSS
+            </div>
+            <div class="tech-item">
+                <strong>Storage:</strong> JSON files
+            </div>
+            <div class="tech-item">
+                <strong>Version Control:</strong> Git
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h3>📖 Learning Resource</h3>
+        <p>
+            This project demonstrates how the same business logic can be implemented across 
+            different interfaces, showcasing fundamental CRUD operations and maintaining 
+            data consistency across platforms.
+        </p>
+    </section>
+
+    <section class="about-section footer-section">
+        <p><strong>Mini Library Manager 2026</strong></p>
+        <p>A retro-modern exploration of application design and user experience</p>
+    </section>
+</div>
+{% endblock %}
