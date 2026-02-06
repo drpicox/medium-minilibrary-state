@@ -135,14 +135,19 @@ See [COMPARATIVA.md](COMPARATIVA.md) for:
 
 ### Additional
 - ✅ Persistent JSON storage
-- ✅ Data sharing between editions
 - ✅ Cross-platform compatibility
+
+### Web-Only Features
+- ✅ Multi-user support with authentication
+- ✅ User accounts with secure login
+- ✅ Per-user data isolation
+- ✅ Password hashing and session management
 
 ---
 
-## 🔄 Data Interoperability
+## 🔄 Data Format
 
-Both editions use the same JSON format:
+Both editions use the same JSON book format:
 
 ```json
 {
@@ -154,19 +159,32 @@ Both editions use the same JSON format:
 }
 ```
 
-**This means:**
-- Add a book in the **Web** edition → appears in **CLI** edition
-- Edit a book in the **CLI** edition → appears in **Web** edition
-- Delete a book in either edition → gone from both
-- Manual JSON editing instantly reflects in both
+### Storage Differences
 
-**Note:** Each edition has its own `books.json` file. To truly sync them, you can:
+**CLI Edition:**
+- Single user library stored in `cli/books.json`
+- Direct access to all data
+
+**Web Edition:**
+- Multi-user architecture: each user has separate library
+- User accounts stored in `web/users.json`
+- Individual libraries in `web/users/{username}/books.json`
+- Login required to access personal library
+
+### Moving Data Between Editions
+
+If you want to import CLI books into Web (as demo user):
+
 ```bash
-# Copy from CLI to Web
-cp cli/books.json web/books.json
+# Copy CLI books to demo user's web library
+cp cli/books.json web/users/demo/books.json
+```
 
-# Or the other way
-cp web/books.json cli/books.json
+Or export Web library back to CLI:
+
+```bash
+# Copy demo user's books to CLI
+cp web/users/demo/books.json cli/books.json
 ```
 
 ---
@@ -179,7 +197,8 @@ cp web/books.json cli/books.json
 | **Dependencies** | None | Flask |
 | **Platforms** | All | All (with browser) |
 | **Interface** | Text menus | Visual cards |
-| **User Type** | Terminal users | Everyone |
+| **User Type** | Single user | Multi-user (with accounts) |
+| **Authentication** | None | Login/Register |
 | **Best For** | Scripting, SSH | Browsing, sharing |
 | **Performance** | Excellent | Good |
 | **Extensibility** | Limited | Good |
@@ -378,14 +397,14 @@ Change the port in `app.py` (line ~300) and access `http://localhost:5001`
 
 The architecture supports adding:
 
-- 🔐 User authentication
-- 👥 Multi-user sharing
 - ⭐ Ratings and reviews
-- 🔍 Advanced search
+- 🔍 Advanced search filters
 - 📊 Statistics dashboard
-- 📱 Mobile app
-- ☁️ Cloud sync
+- 📱 Mobile web app
+- ☁️ Cloud sync for web edition
 - 📖 Reading list generation
+- 🔄 Export to PDF/CSV
+- 👥 Book sharing between users (web)
 
 ---
 
@@ -441,15 +460,17 @@ cd cli
 python3 main.py
 ```
 
-### 🌐 Want the modern interface?
+### 🌐 Want the modern web interface?
 ```bash
 cd web
 pip install -r requirements.txt
 python3 app.py
+# Open http://localhost:5000
+# Login with: demo / 1234 (or create your own account)
 ```
 
-### 📖 Want to understand the differences?
-Read [COMPARATIVA.md](COMPARATIVA.md)
+### 📖 Want to understand the architecture?
+Read [COMPARATIVA.md](COMPARATIVA.md) for detailed comparison
 
 ---
 
