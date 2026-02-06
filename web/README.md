@@ -1,6 +1,6 @@
 # Mini Library Manager - Web Edition
 
-A modern Flask-based web interface for managing your personal book library.
+A modern Flask-based web interface for managing your personal book library with **multi-user support**.
 
 ## Quick Start
 
@@ -26,23 +26,51 @@ A modern Flask-based web interface for managing your personal book library.
    http://localhost:5000
    ```
 
+### Demo Account
+
+Quick access - no need to register:
+- **Username:** `demo`
+- **Password:** `1234`
+
 ## Features
 
 ✨ **Intuitive Web Interface** - Clean, retro-modern design  
 📚 **Full CRUD Operations** - Manage your library completely  
 💾 **Persistent Storage** - Saves to JSON automatically  
 🎨 **Responsive Design** - Works on desktop and mobile  
-🔄 **Shared Data** - Syncs with CLI edition's books.json  
+� **Multi-User Support** - Each user has their own library  
+👤 **User Accounts** - Register and login securely  
+🔄 **Data Isolation** - Users only see their own books  
 
 ## Navigation
 
-- **📖 Library** - View all your books in a card layout
+- **� Login** - Enter your account
+- **✍️ Register** - Create a new account
+- **📖 Library** - View all your books
 - **➕ Add Book** - Add new books to your collection
 - **ℹ️ About** - Learn more about the project
+- **🚪 Logout** - Exit your account
 
 ## Workflow
 
-### Adding a Book
+### 1. Getting Started
+
+**Option A: Try Demo Account**
+```
+Username: demo
+Password: 1234
+```
+
+**Option B: Create Your Account**
+1. Click "✍️ Create Account"
+2. Choose username (min 3 characters)
+3. Create password (min 4 characters)
+4. Click "✅ Create Account"
+5. Start adding books!
+
+### 2. Managing Books
+
+The workflow is identical to other editions - Add, View, Edit, Delete.
 
 1. Click **"➕ Add Book"**
 2. Fill in:
@@ -88,12 +116,17 @@ This web edition maintains the **retro-modern aesthetic** of the CLI version whi
 
 ```
 web/
-├── app.py                    # Flask application
-├── books.json               # Library data (auto-created)
+├── app.py                    # Flask application with auth
+├── users.json               # User accounts database
 ├── requirements.txt         # Python dependencies
 ├── README.md               # This file
+├── users/                  # User data directory
+│   └── demo/
+│       └── books.json      # Demo user's books
 ├── templates/
-│   ├── base.html           # Base template
+│   ├── base.html           # Base template with navbar
+│   ├── login.html          # Login page
+│   ├── register.html       # Register page
 │   ├── index.html          # Library listing
 │   ├── add_book.html       # Add book form
 │   ├── book_details.html   # Book details view
@@ -105,32 +138,75 @@ web/
 
 ## API Routes
 
-- `GET /` - Display all books
+### Authentication
+- `GET /login` - Login form
+- `POST /login` - Submit login credentials
+- `GET /register` - Registration form
+- `POST /register` - Create new user account
+- `GET /logout` - End session and logout
+
+### Library Management
+- `GET /` - Display all books (requires login)
 - `GET /add`, `POST /add` - Add new book form & submission
 - `GET /book/<id>` - View book details
 - `GET /edit/<id>`, `POST /edit/<id>` - Edit book form & submission
 - `POST /delete/<id>` - Delete book
 - `GET /about` - About page
 
-## Data Sharing
+## Data Storage & Security
 
-Both CLI and web editions share the same `books.json` format:
+### Multi-User Architecture
 
-```json
-{
-  "id": 1,
-  "title": "The Hobbit",
-  "author": "J.R.R. Tolkien",
-  "lent_to": "John",
-  "created_at": "2026-02-06T22:34:34"
-}
+Each user's data is **completely isolated** using this directory structure:
+
+```
+web/
+├── users.json              ← All user accounts with password hashes
+└── users/
+    ├── demo/
+    │   └── books.json      ← Demo user's books
+    ├── alice/
+    │   └── books.json      ← Alice's books
+    └── bob/
+        └── books.json      ← Bob's books
 ```
 
-You can:
-- Add books in the web version, view them in CLI
-- Modify data in CLI, see changes reflected in web
-- Edit `books.json` directly if needed
-- Back up your library by copying the JSON file
+### User Privacy
+
+- **Passwords:** Hashed using SHA256, never stored plaintext
+- **Books:** Each user sees ONLY their own library
+- **Sessions:** Flask session management with timeout
+- **No Mixing:** Users cannot access other users' books
+
+### Book Data Format
+
+Each user's `users/username/books.json` contains:
+
+```json
+[
+  {
+    "id": 1,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "lent_to": "John",
+    "created_at": "2026-02-06T22:34:34"
+  }
+]
+```
+
+### Backup & Migration
+
+To backup a specific user's library:
+```bash
+cp web/users/demo/books.json backup/demo-books.json
+```
+
+To export all user accounts:
+```bash
+cp web/users.json backup/users.json
+```
+
+⚠️ **Important:** Keep `users.json` and `web/users/` safe - they contain all library data and user credentials.
 
 ## Browser Compatibility
 
