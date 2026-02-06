@@ -40,7 +40,7 @@ Both manage the same data (your personal book library) but provide dramatically 
 msdos-library/
 │
 ├── README.md                ← You are here
-├── COMPARATIVA.md           ← Deep comparison analysis
+├── COMPARISON.md            ← Deep comparison analysis
 │
 ├── cli/                     ← Command-line version
 │   ├── main.py              ← Single Python file (232 lines)
@@ -104,7 +104,7 @@ See [web/README.md](web/README.md) for:
 - Future enhancements
 
 ### Architecture & Design Analysis
-See [COMPARATIVA.md](COMPARATIVA.md) for:
+See [COMPARISON.md](COMPARISON.md) for:
 - Side-by-side comparison
 - Architecture diagrams
 - Performance analysis
@@ -470,7 +470,7 @@ python3 app.py
 ```
 
 ### 📖 Want to understand the architecture?
-Read [COMPARATIVA.md](COMPARATIVA.md) for detailed comparison
+Read [COMPARISON.md](COMPARISON.md) for detailed comparison
 
 ---
 
