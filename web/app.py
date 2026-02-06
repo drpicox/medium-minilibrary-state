@@ -89,7 +89,7 @@ def index():
     
     username = session['username']
     books = load_user_books(username)
-    return render_template("library.html", books=books, username=username, count=len(books))
+    return render_template("index.html", books=books, username=username, count=len(books))
 
 
 @app.route("/login", methods=["GET", "POST"])
