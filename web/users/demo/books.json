@@ -1,9 +1,114 @@
 [
   {
     "id": 1,
-    "title": "The Hobbit (Faerie Edition)",
+    "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
-    "lent_to": "John",
+    "lent_to": "Peter",
     "created_at": "2026-02-06T22:34:34.857548"
+  },
+  {
+    "id": 2,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "author": "J.R.R. Tolkien",
+    "lent_to": "Peter",
+    "created_at": "2026-02-06T22:35:10.123456"
+  },
+  {
+    "id": 3,
+    "title": "The Lord of the Rings: The Two Towers",
+    "author": "J.R.R. Tolkien",
+    "lent_to": "Peter",
+    "created_at": "2026-02-06T22:35:50.234567"
+  },
+  {
+    "id": 4,
+    "title": "The Lord of the Rings: The Return of the King",
+    "author": "J.R.R. Tolkien",
+    "lent_to": "Peter",
+    "created_at": "2026-02-06T22:36:30.345678"
+  },
+  {
+    "id": 5,
+    "title": "The Name of the Wind",
+    "author": "Patrick Rothfuss",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:37:15.456789"
+  },
+  {
+    "id": 6,
+    "title": "A Game of Thrones",
+    "author": "George R.R. Martin",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:38:00.567890"
+  },
+  {
+    "id": 7,
+    "title": "The Way of Kings",
+    "author": "Brandon Sanderson",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:38:45.678901"
+  },
+  {
+    "id": 8,
+    "title": "Treasure Island",
+    "author": "Robert Louis Stevenson",
+    "lent_to": "Steven",
+    "created_at": "2026-02-06T22:39:20.789012"
+  },
+  {
+    "id": 9,
+    "title": "The Adventures of Tintin: Objective Moon",
+    "author": "Hergé",
+    "lent_to": "Steven",
+    "created_at": "2026-02-06T22:40:00.890123"
+  },
+  {
+    "id": 10,
+    "title": "Journey to the Center of the Earth",
+    "author": "Jules Verne",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:40:45.901234"
+  },
+  {
+    "id": 11,
+    "title": "Around the World in Eighty Days",
+    "author": "Jules Verne",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:41:30.012345"
+  },
+  {
+    "id": 12,
+    "title": "Robinson Crusoe",
+    "author": "Daniel Defoe",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:42:15.123456"
+  },
+  {
+    "id": 13,
+    "title": "The Three Musketeers",
+    "author": "Alexandre Dumas",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:43:00.234567"
+  },
+  {
+    "id": 14,
+    "title": "1984",
+    "author": "George Orwell",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:43:45.345678"
+  },
+  {
+    "id": 15,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:44:30.456789"
+  },
+  {
+    "id": 16,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "lent_to": "",
+    "created_at": "2026-02-06T22:45:15.567890"
   }
 ]
