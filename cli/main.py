@@ -26,15 +26,15 @@ def main_menu():
     while True:
         books = load_books()
         clear_screen()
-        print("\n" + "=" * 60)
-        print("                 MINI LIBRARY MANAGER v1.0")
-        print("=" * 60)
+        print("\n" + "=" * 80)
+        print("                      MINI LIBRARY MANAGER v1.0")
+        print("=" * 80)
         print("\n1. List Books")
         print("2. Add New Book")
         print("3. Edit Book")
         print("4. Delete Book")
         print("0. Exit\n")
-        print("=" * 60)
+        print("=" * 80)
 
         choice = input(">>> Select an option: ").strip()
 
@@ -70,15 +70,15 @@ def list_books(books):
         return None
 
     clear_screen()
-    print("-" * 62)
-    print(f"{'ID':<2} | {'Title':<30} | {'Author':<20} | {'S':<1}")
-    print("-" * 62)
+    print("-" * 80)
+    print(f"{'ID':<2} | {'Title':<35} | {'Author':<25} | {'S':<1}")
+    print("-" * 80)
     for idx, book in enumerate(books, 1):
-        title = book['title'][:30].ljust(30)
-        author = book['author'][:20].ljust(20)
+        title = book['title'][:35].ljust(35)
+        author = book['author'][:25].ljust(25)
         status = "L" if book.get("lent_to", "").strip() else " "
         print(f"{idx:<2} | {title} | {author} | {status}")
-    print("-" * 62 + "\n")
+    print("-" * 80 + "\n")
 
     pause()
 
@@ -94,9 +94,9 @@ def list_books(books):
 def add_book(books):
     """Add a new book to the library"""
     clear_screen()
-    print("\n" + "-" * 60)
+    print("\n" + "-" * 80)
     print("ADD NEW BOOK")
-    print("-" * 60)
+    print("-" * 80)
 
     title = input(">>> Title: ").strip()
     if not title:
@@ -144,13 +144,13 @@ def edit_book(books):
     while True:
         clear_screen()
         print("EDIT MENU:")
-        print("-" * 60)
+        print("-" * 80)
         print("1. View Book")
         print("2. Edit Title")
         print("3. Edit Author")
         print("4. Edit Lent To")
         print("0. Back to List\n")
-        print("-" * 60)
+        print("-" * 80)
 
         choice = input(">>> Choose an option: ").strip()
 
@@ -172,14 +172,14 @@ def edit_book(books):
 
 def view_book(book, book_num):
     """Display detailed information about a book"""
-    print("\n" + "-" * 60)
+    print("\n" + "-" * 80)
     print(f"BOOK #{book_num}")
-    print("-" * 60)
+    print("-" * 80)
     print(f"Title:     {book['title']}")
     print(f"Author:    {book['author']}")
     lent_to = book.get("lent_to", "").strip()
     print(f"Lent To:   {lent_to if lent_to else '(Not lent)'}")
-    print("-" * 60 + "\n")
+    print("-" * 80 + "\n")
 
 
 def edit_title(book):
