@@ -23,7 +23,7 @@ A modern Flask-based web interface for managing your personal book library with 
 
 4. **Open your browser:**
    ```
-   http://localhost:5000
+   http://localhost:5001
    ```
 
 ### Demo Account
@@ -248,10 +248,10 @@ app.run(debug=False, port=5000)
 pip install -r requirements.txt
 ```
 
-**Port 5000 already in use?**
-Change the port in `app.py`:
+**Port in use?**
+Change the port in `app.py`. Currently set to 5001 to avoid macOS AirPlay Receiver conflict:
 ```python
-app.run(debug=True, port=5001)  # Use 5001 instead
+app.run(debug=False, port=5001)  # Configured for macOS compatibility
 ```
 
 **CSS not loading?**
